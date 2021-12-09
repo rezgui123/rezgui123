@@ -11,7 +11,7 @@ pipeline {
       //    kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig", enableConfigSubstitution: true)
     //    }
         
-        sh "kubect  apply -f nginx.yml"
+        sh "kubectl  apply -f nginx.yml"
       }
     }
 
