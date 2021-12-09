@@ -9,7 +9,7 @@ pipeline {
       steps {
         script {
       //    kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig", enableConfigSubstitution: true)
-          sh "kubectl  apply -f nginx.yml"
+          sh "kubectl  apply -f nginx.yml --kubeconfig=/root/.kube/config"
                }
         
         
