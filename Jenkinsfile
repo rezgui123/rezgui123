@@ -13,7 +13,8 @@ stages {
             steps {
                     script{
 kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig")
-               }            }
+               }           
+            }
     }
 }
 }
