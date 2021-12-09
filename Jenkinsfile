@@ -2,10 +2,10 @@ pipline {
   
 agent any
   
-   stages {
+stages {
 
-    stage('Checkout Source') {
-      steps {
+ stage('Checkout Source') {
+   steps {
         git 'https://github.com/rezgui123/rezgui123.git'
       }
     }
