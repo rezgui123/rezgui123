@@ -7,13 +7,11 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-        script {
+        container('default') {
       //    kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig", enableConfigSubstitution: true)
-          sh "kubectl  apply -f nginx.yml --kubeconfig=/root/.kube/config"
+          sh "kubectl  apply -f nginx.yml"
                }
-        
-        
-      }
+                }
     }
 
   }
