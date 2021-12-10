@@ -31,7 +31,7 @@
 
                stage('Deploy App to Kubernetes') { 
 		        when {
-                           branch "main"
+                           branch 'main'
                       }
                        steps {
  
