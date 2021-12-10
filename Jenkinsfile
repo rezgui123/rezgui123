@@ -1,4 +1,4 @@
-pipeline{
+ pipeline{
 
 	agent any
 
@@ -35,7 +35,7 @@ pipeline{
                       //    kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig", enableConfigSubstitution: true)
           sh "sh run.sh"
               }catch (error){
-          sh "kubectl  create -f nginx.yml"
+          sh " echo error"
               }
                 }
     }
