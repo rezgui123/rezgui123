@@ -34,7 +34,7 @@
 
  stage('Checkout Source') {
    steps {
-        git 'https://github.com/rezgui123/rezgui123.git'
+        git 'https://github.com/rezgui123/rezgui123'
       }
     }
 	
