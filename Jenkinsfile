@@ -38,7 +38,7 @@ if(env.BRANCH_NAME == 'main'){
                                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
                                    sh 'kubectl apply -f nginx.yml'
 
-       // }
+       }
       }
     }
   }
