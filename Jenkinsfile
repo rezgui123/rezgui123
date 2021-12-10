@@ -2,7 +2,7 @@
 
 agent {
     kubernetes {
-      yamlFile 'nginx.yml'
+      yamlFile ''
     }
   }
 
