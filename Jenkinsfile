@@ -2,9 +2,8 @@
 
  agent {
         kubernetes {
-            cloud 'openshift'
-            label 'test'
-            yamlFile 'nginx.yml'
+        label podlabel
+        yaml """
         }
     }
 
