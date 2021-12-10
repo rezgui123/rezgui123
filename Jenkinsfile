@@ -43,22 +43,12 @@
           //                 branch "main"
             //   }
                        steps {
- 
-           script { 
-            if (env.BRANCH_NAME = 'main') {
-                 withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-                                   sh 'kubectl apply -f nginx.yml'
-            } 
-		else {
-                echo 'things and stuff'
-            }
-	    
-			       //   withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-                                  // sh 'kubectl apply -f nginx.yml'
+          
+			        withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+                                  sh 'kubectl apply -f nginx.yml'
 
                               }
                             }
                                       }
-	}
  }
  }
