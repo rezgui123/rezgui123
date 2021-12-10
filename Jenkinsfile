@@ -43,8 +43,9 @@
                        steps {
           
 			        withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+			          sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" nginx.yml'
                                   sh 'kubectl apply -f nginx.yml'
-					echo '${BUILD_NUMBER}'
+				
 
                               }
                             }
