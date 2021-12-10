@@ -1,22 +1,39 @@
-pipeline {
+pipeline{
 
-  agent any
+	agent any
 
-  stages {
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('rezguimed')
+	}
 
+	stages {
 
-    stage('Deploy App') {
-      steps {
-            script {
-              try{
-                      //    kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig", enableConfigSubstitution: true)
-          sh "kubectl  apply -f nginx.yml"
-              }catch (error){
-          sh "kubectl  create -f nginx.yml"
-              }
-                }
-    }
-    }
-  }
+		stage('Build') {
+
+			steps {
+				sh 'docker build -t rezguimed/nodeapp:latest .'
+			}
+		}
+
+		stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('Push') {
+
+			steps {
+				sh 'docker push rezguimed/nodeapp:latest'
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
 
 }
