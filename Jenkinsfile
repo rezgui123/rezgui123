@@ -28,12 +28,12 @@
 				sh 'docker push rezguimed/nodeapp:latest'
 			}
 		}
-  stage('Deploy App to Kubernetes') {     
-      steps {
-        container('default') {
-          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+               stage('Deploy App to Kubernetes') {     
+                       steps {
+                           container('default') {
+                                   withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
          //   sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" nginx.yml'
-            sh 'kubectl apply -f nginx.yml'
+                                   sh 'kubectl apply -f nginx.yml'
           }
         }
       }
