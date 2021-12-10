@@ -28,17 +28,15 @@
 				sh 'docker push rezguimed/nodeapp:latest'
 			}
 		}
-	  stage('Deploy App') {
+  stage('Deploy App to Kubernetes') {     
       steps {
-            script {
-              try{
-                      //    kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig", enableConfigSubstitution: true)
-          sh "sh run.sh"
-              }catch (error){
-          sh " echo error"
-              }
-                }
-    }
+        container('default') {
+          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" nginx.yml'
+            sh 'kubectl apply -f nginx.yml'
+          }
+        }
+      }
     }
   }
 	}
