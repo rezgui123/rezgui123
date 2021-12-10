@@ -31,7 +31,7 @@
 
                stage('Deploy App to Kubernetes') {     
                       steps {
-                           container('test') {
+                           container('nodeapp') {
                                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
                                    sh 'kubectl apply -f nginx.yml'
           }
