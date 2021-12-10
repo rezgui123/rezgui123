@@ -2,9 +2,7 @@
 
 	agent any
 
-	environment {
-		DOCKERHUB_CREDENTIALS=credentials('rezguimed')
-	}
+
 
 	stages{
 
