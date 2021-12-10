@@ -29,12 +29,15 @@
 			}
 		}
 
-               stage('Deploy App to Kubernetes') {     
-                      steps {
-                           container('nodeapp') {
+               stage('Deploy App to Kubernetes') { 
+		        when {
+                           branch "main"
+                      }
+                       steps {
+ 
                                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
                                    sh 'kubectl apply -f nginx.yml'
-          }
+
         }
       }
     }
