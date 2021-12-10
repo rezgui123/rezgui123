@@ -1,6 +1,12 @@
  pipeline{
 
-agent any
+ agent {
+        kubernetes {
+            cloud 'openshift'
+            label 'test'
+            yamlFile 'nginx.yml'
+        }
+    }
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('rezguimed')
