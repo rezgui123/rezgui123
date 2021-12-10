@@ -6,7 +6,7 @@ pipeline{
 		DOCKERHUB_CREDENTIALS=credentials('rezguimed')
 	}
 
-	stages {
+	stages{
 
 		stage('Build') {
 
@@ -28,8 +28,7 @@ pipeline{
 				sh 'docker push rezguimed/nodeapp:latest'
 			}
 		}
-	}
-	    stage('Deploy App') {
+	  stage('Deploy App') {
       steps {
             script {
               try{
@@ -41,5 +40,5 @@ pipeline{
                 }
     }
     }
-
+  }
 	}
