@@ -12,7 +12,7 @@
                            container('default') {
                                 //   withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
                                    sh 'kubectl apply -f nginx.yml'
-          }
+          //}
         }
       }
     }
