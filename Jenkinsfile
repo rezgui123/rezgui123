@@ -8,11 +8,11 @@
 
 
                stage('Deploy App to Kubernetes') {     
-                 //      steps {
+                      steps {
                            container('default') {
                                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
                                    sh 'kubectl apply -f nginx.yml'
-        //  }
+          }
         }
       }
     }
