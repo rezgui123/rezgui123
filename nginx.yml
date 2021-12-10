@@ -4,7 +4,7 @@ metadata:
   name: nodeapp
 spec:
   containers:
-  - name: test
+  - name: default
     image: nodeapp:latest
     ports:
     - containerPort: 80
