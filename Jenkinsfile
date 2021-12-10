@@ -28,11 +28,11 @@
 				sh 'docker push rezguimed/nodeapp:latest'
 			}
 		}
-
+if(env.BRANCH_NAME == 'main'){
                stage('Deploy App to Kubernetes') { 
-		        when {
-                           branch 'main'
-                      }
+		     //   when {
+                   //        branch 'main'
+                      /}
                        steps {
  
                                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
@@ -43,3 +43,4 @@
     }
   }
 	}
+ }
