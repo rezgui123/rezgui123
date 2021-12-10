@@ -1,10 +1,6 @@
  pipeline{
 
-agent {
-    kubernetes {
-      yamlFile ''
-    }
-  }
+agent any
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('rezguimed')
