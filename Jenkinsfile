@@ -33,7 +33,7 @@ pipeline{
             script {
               try{
                       //    kubernetesDeploy(configs: "nginx.yml", kubeconfigId: "mykubeconfig", enableConfigSubstitution: true)
-          sh "kubectl  apply -f nginx.yml"
+          sh "sh run.sh"
               }catch (error){
           sh "kubectl  create -f nginx.yml"
               }
