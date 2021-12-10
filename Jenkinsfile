@@ -39,9 +39,8 @@
     }
 	
     stage('Deploy App to Kubernetes') { 
-	//	      when {
-          //                 branch "main"
-            //   }
+	    
+           when { branch "main" }
                        steps {
           
 			        withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
