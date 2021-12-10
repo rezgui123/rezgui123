@@ -1,11 +1,6 @@
  pipeline{
 
- agent {
-        kubernetes {
-        label podlabel
-        yaml """
-        }
-    }
+ agent any
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('rezguimed')
@@ -36,10 +31,10 @@
 
                stage('Deploy App to Kubernetes') {     
                       steps {
-                           container('default') {
+                          // container('default') {
                                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
                                    sh 'kubectl apply -f nginx.yml'
-          }
+         // }
         }
       }
     }
