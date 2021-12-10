@@ -31,7 +31,6 @@
 			}
 		}
 		
-
  stage('Checkout Source') {
    steps {
         git branch: 'main', credentialsId: 'b3b770a5-6304-4c16-8a36-55c6214b2707', url: 'https://github.com/rezgui123/rezgui123.git'
